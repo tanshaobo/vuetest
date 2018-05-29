@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest12_计算属性</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>初始值:{{msg}}</p>
+            <p>函数翻转：{{reverseStr()}}</p>
+            <p>计算属性：{{reverse}}</p>
+            <p>{{fullName}}</p>
+            <p>{{allName}}</p>
+            <button v-on:click="deal()">这个是按钮</button>
+        </div>
+        <script>
+//1创建vue实例
+new Vue({
+    el: '#app',
+    data: {
+        msg: "Rose && Jack",
+        firstname:'尼古拉斯',
+        lastname:'赵四'
+    },
+    methods: {
+        reverseStr() {
+            return this.msg.split('').reverse().join('')
+        }   ,
+        deal(){
+            this.allName='史密斯 刘能'
+        }
+
+    },
+    computed: {
+        //get 方法  默认
+            reverse() {
+                return this.msg.split('').reverse().join('')
+            },
+            fullName(){
+                return this.firstname+this.lastname
+            },
+            allName:{
+                get(){
+                return this.firstname+' '+this.lastname
+            },
+            set(str){
+                let name=str.split(' ')
+                this.firstname=name[0]
+                this.lastname=name[1]
+            }
+            }
+        }
+})
+        </script>
+    </body>
+</html>

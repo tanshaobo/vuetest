@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest20_组件通信</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-div msg="我叫渣渣辉，是兄弟就来砍死我" msg2="我不断的洗澡，油腻的师姐在哪里"></my-div>
+            <my-div msg="我叫渣渣辉，是兄弟就来砍死古天乐" msg2="我不断的寻找，有你的世界在哪里"></my-div>
+
+        </div>
+        <template id="my-div">
+            <div>
+                <div>{{msg}}</div>
+                <p>{{msg2}}</p>
+            </div>
+        </template>
+
+        <script>
+Vue.component('my-div', {
+    template: "#my-div",
+    props: ['msg', 'msg2']
+})
+
+new Vue({
+    el: '#app'
+})
+
+        </script>
+    </body>
+</html>

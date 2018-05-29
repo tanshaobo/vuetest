@@ -1,0 +1,51 @@
+{
+    "elements": {
+        "my-color": {},
+        "parent": {},
+        "my-date": {},
+        "my-divs": {},
+        "my-body": {},
+        "child2": {},
+        "my-head": {},
+        "my-Div": {},
+        "my-div": {},
+        "child1": {},
+        "myhead": {},
+        "mybody": {},
+        "my-Div1": {},
+        "child": {}
+    },
+    "attributes": {
+        "msg": {},
+        "v-bind:msg2": {},
+        "v-bind:msg1": {},
+        "v-if": {
+            "context": "p"
+        },
+        "msg2": {},
+        "msg1": {},
+        "v-html": {},
+        "v-for": {
+            "context": "li"
+        },
+        "v-text": {},
+        "parentmsg2": {},
+        "v-model": {
+            "context": "input"
+        },
+        "parentmsg1": {},
+        "v-bind:title": {
+            "context": "span"
+        },
+        "v-once": {
+            "context": "p"
+        },
+        "v-bind:style": {},
+        "v-on:click": {
+            "context": "button"
+        },
+        "v-else": {},
+        "v-else-if": {},
+        "v-show": {}
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest24_实名插槽</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-computer>
+                <div slot="cpu">inter core i5</div>
+                                <div slot="gpu">这里就随便写写吧</div>
+                <div slot="neicun">8G内存1</div>
+                <div slot="yingpan">500G机械硬盘</div>
+                <div slot="xianka">GTM750</div>
+
+            </my-computer>
+        </div>
+        <template id="my-computer">
+            <div id="mian">
+                <slot name="cpu">这是插cpu的</slot>
+                <slot name="gpu">这是插gpu的</slot>
+                <slot name="neicun">这是插内存条的</slot>
+                <slot name="yingpan">这是插硬盘的</slot>
+                <slot name="xianka">这是插显卡的</slot>
+
+            </div>
+        </template>
+        <script>
+         Vue.component('my-computer',{
+             template:'#my-computer'
+         })
+            new Vue({
+                el: '#app'
+            });
+
+        </script>
+    </body>
+</html>

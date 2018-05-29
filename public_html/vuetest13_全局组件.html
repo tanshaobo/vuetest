@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest13_全局组件</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-date></my-date>     
+            <my-date></my-date>
+        </div>
+        <div id='app1'>
+            <my-date></my-date>
+        </div>
+        <script>
+            //1创建组件构造器
+            let Profile = Vue.extend({
+                template: "<div><input type='text'/><p>today is winter</p></div>"
+            });
+            //2注册组件
+            Vue.component('my-date', Profile);
+            new Vue({
+                el: '#app',
+            })
+            
+            new Vue({
+                el: '#app1',
+            })
+        </script>
+    </body>
+</html>
