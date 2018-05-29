@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest09_v-text and v-html</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p v-text="msg"></p>
+            <p v-html="msg"></p>
+
+        </div>
+        <script>
+//1创建vue实例
+            new Vue({
+                el: '#app',
+                data: {//vue 中的model 关联数据
+
+                    msg: "<span>这是带标签的一句话</span>"
+                }
+            })
+        </script>
+    </body>
+</html>

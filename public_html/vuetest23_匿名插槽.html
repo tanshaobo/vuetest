@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest23_匿名插槽</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-slot>
+                <h2>这个是代替插槽的</h2>
+            </my-slot>
+        </div>
+        <template id="my-slot">
+            <div id="panel">
+                <header class="panel-header">插槽头部</header>
+                <slot>可替换任何标签，默认显示提示内容</slot>
+                <footer class="panel-footer">插槽底部</footer>
+            </div>
+        </template>
+        <script>
+Vue.component('my-slot',{
+    template:"#my-slot"
+})
+new Vue({
+    el: '#app'
+});
+
+        </script>
+    </body>
+</html>

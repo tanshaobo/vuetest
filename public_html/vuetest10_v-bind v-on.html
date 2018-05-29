@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest10_v-bind v-on</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .active{
+                background: orange;
+                color:#FFFFFF;
+                
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+           
+        </div>
+        <script>
+//1创建vue实例
+            new Vue({
+                el: '#app',
+                data: {//vue 中的model 关联数据
+                    word: [
+                        "ios学院",
+                        "Andriod学院",
+                        "PHP学院",
+                        "java学院",
+                        "UI学院",
+                        "web 学院"
+                    ],
+                    activeIndex:1,
+                    msg:"today is a good day",
+                    fontColor:"#ffa631"
+                },
+                methods:{
+                    onClick(){
+                        this.msg="tomorrow upon tomorrow"
+                        this.fontColor="#3cc266"
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

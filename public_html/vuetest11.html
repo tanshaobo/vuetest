@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest10_v-bind v-on</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #app{width: 800px;margin: 0 auto;}
+            fieldset{border:1px solid #ffa631;}
+            fieldset li{list-style-type: none;}
+            fieldset input{width: 200px;height: 30px;margin: 8px;}
+            table{width: 800px;border: 2px solid #ffa631;text-align: center;}
+            thead{background: #ffa631;}
+            thead tr{color: #FFFFFf;}
+            thead tr th{width: 160px}
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <fieldset>
+                <legend>拇指哥学生录入系统</legend>
+                <ul>
+                    <li><span>姓名</span><input type="text" placeholder="请输入姓名" v-model="newperson.name"/></li>                     
+                    <li><span>年龄</span><input type="text" placeholder="请输入年龄" v-model="newperson.age"/></li>
+                    <li><span>性别</span>
+                        <select v-model="newperson.sex">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+
+                        </select>
+                    </li>
+                    <li><span>手机</span><input type="text" placeholder="请输入手机号" v-model="newperson.phone"/></li>
+                    <li><button v-on:click="onCreate">点击创建</button></li>
+                </ul>
+            </fieldset>
+            <table>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>性别</th>
+                        <th>手机</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(p,index) in person">
+                        <td>{{p.name}}</td>   
+                        <td>{{p.age}}</td>
+                        <td>{{p.sex}}</td>
+                        <td>{{p.phone}}</td>
+                        <td><button v-on:click="onDelete">删除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+//1创建vue实例
+new Vue({
+    el: '#app',
+    data: {
+        person: [
+            {name: "张三", age: 20, sex: "男", phone: "18235140339"},
+            {name: "李四", age: 21, sex: "女", phone: "18235241335"},
+            {name: "王五", age: 23, sex: "男", phone: "18335540739"},
+            {name: "赵六", age: 18, sex: "女", phone: "13235188339"},
+            {name: "田七", age: 22, sex: "男", phone: "15298140339"}
+        ],
+        newperson: {name: "", age: 0, sex: "男", phone: ""}
+    },
+    methods: {
+        onCreate() {
+            if(this.newperson.name===""){
+                alert('姓名不能为空');
+                return;
+            }
+            if(this.newperson.age<=0){
+                alert('年龄输入有误');
+                return;
+            }if(this.newperson.phone===""){
+                alert('手机号码不能为空');
+                return;
+            }
+            this.person.unshift(this.newperson)
+            this.newperson= {name: "", age: 0, sex: "男", phone: ""}
+        },
+        onDelete(index){
+            this.person.splice(index,1)
+        }
+    }
+})
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest19_test-data</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <my-div></my-div>    
+            <my-div></my-div>
+            <my-div></my-div>
+            <my-div></my-div>
+            <my-div></my-div>
+            <my-div></my-div>
+            <my-div></my-div>
+
+        </div>
+        <template id="my-div">
+            <button v-on:click="count+=1">点击次数{{count}}</button>
+        </template>
+        <script>
+            let data={
+                count:0
+            }
+Vue.component('my-div', {
+    template: "#my-div",
+//    data(){
+//        return data
+//    },
+     data(){
+        return{ 
+            count:0
+        }
+    }
+})
+new Vue({
+    el: '#app'
+})
+
+        </script>
+    </body>
+</html>

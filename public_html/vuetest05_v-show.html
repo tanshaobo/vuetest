@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>vuetest05_v-show</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p v-show="show">我要显示</p>   
+            <p v-show="hide">我要隐藏</p>
+            <p v-show="height>1.5">小明的身高：{{height}} 他姓黄</p>
+            <p v-show="heights<1.5">小明的身高：{{heights}} 他姓郭</p>
+        </div>
+        <script>
+//1创建vue实例
+new Vue({
+    el: '#app',
+    data: {//vue 中的model 关联数据
+        show: true,
+        hide: false,
+        height: 1.6,
+        heights: 1.4
+    }
+})
+        </script>
+    </body>
+</html>

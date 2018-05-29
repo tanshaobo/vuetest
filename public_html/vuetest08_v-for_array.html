@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>vuetest08_v-for_array</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <table style="text-align: center">
+                <thead style="background: orange;color:#FFFFFF;">
+                    <tr>
+                        <th width="160">姓名</th>  
+                        <th width="160">年龄</th> 
+                        <th width="160">性别</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="p in person">
+                        <td>{{p.name}}</td>
+                        <td>{{p.age}}</td>
+                        <td>{{p.sex}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+//1创建vue实例
+            new Vue({
+                el: '#app',
+                data: {//vue 中的model 关联数据
+                    person: [
+                        {name: "张三", age: "18", sex: "男"},
+                        {name: "李四", age: "19", sex: "女"},
+                        {name: "王五", age: "20", sex: "女"},
+                        {name: "赵六", age: "22", sex: "男"},
+                        {name: "孙七", age: "20", sex: "女"}
+
+                    ]
+
+                }
+            })
+        </script>
+    </body>
+</html>

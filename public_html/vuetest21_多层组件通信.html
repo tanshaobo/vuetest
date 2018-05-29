@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vuetest21_多层组件通信</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <myhtml headcontent="我是head"></myhtml>
+        </div>
+        <template id="myhtml">
+            <div>
+                <myHead v-bind:headmsg="headcontent"></myHead>
+                <myBody h1content="我是h1" h2content="我是h2"></myBody>
+            </div>
+        </template>
+        <template id="myhead">
+            <div>{{headmsg}}</div>
+        </template>
+        <template id="mybody">
+            <div>
+                <myH1 v-bind:h1msg="h1content"></myH1>
+                <myH2 v-bind:h2msg="h2content"></myH2>
+                <myP spancontent="我是span" acontent="我是a"></myP>
+            </div>
+        </template>
+        <template id="myh1">
+            <h1>{{h1msg}}</h1>
+        </template>
+        <template id="myh2">
+            <h2>{{h2msg}}</h2>
+        </template>
+        <template id="myp">
+            <p>
+            <mySpan v-bind:spanmsg="spancontent"></mySpan>
+            <myA v-bind:amsg="acontent"></myA>
+        </p>
+    </template>
+    <template id="myspan">
+        <span>{{spanmsg}}</span>
+    </template>
+    <template id="mya">
+        <a>{{amsg}}</a>
+    </template>
+    <script>
+let myHead = Vue.extend({
+template: '#myhead',
+props: ['headmsg']
+});
+let myH1 = Vue.extend({
+template: '#myh1',
+props: ['h1msg']
+});
+let myH2 = Vue.extend({
+template: '#myh2',
+props: ['h2msg']
+});
+
+let mySpan = Vue.extend({
+template: '#myspan',
+props: ['spanmsg']
+});
+let myA = Vue.extend({
+template: '#mya',
+props: ['amsg']
+});
+let myP = Vue.extend({
+template: '#myp',
+props: ['spancontent', 'acontent'],
+components: {
+    'myspan': mySpan,
+    'mya': myA
+}
+});
+let myBody = Vue.extend({
+template: '#mybody',
+props: ['h1content', 'h2content'],
+components: {
+    'myh1': myH1,
+    'myh2': myH2,
+    'myp': myP
+}
+});
+Vue.component('myhtml', {
+template: "#myhtml",
+props: ['headcontent'],
+components: {
+    'myhead': myHead,
+    'mybody': myBody
+}
+});
+
+new Vue({
+el: '#app'
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>vue初入门</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>{{message}}</p>
+            <p>{{msg}}</p>
+        </div>
+        <script>
+            //1创建vue实例
+            let vm = new Vue({
+                el: '#app',
+                data: {         //vue 中的model 关联数据
+                    message : "hello world",
+                    msg:'today is a good day'
+                }
+            })
+        </script>
+    </body>
+</html>
